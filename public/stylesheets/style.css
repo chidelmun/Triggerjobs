@@ -31,4 +31,16 @@ a {
 #triginp{
   width: 40%;
 }
+#frm_search{
+  font-size: 22px;
+}
+
+#hmabt{
+  font-size: 19px;
+}
+
+#mainvw{
+  background-color: #4b53b3;
+  color : white;
+}
 
