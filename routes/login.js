@@ -23,8 +23,37 @@ router.post('/',function(req,res,next){
   		if (err) {
   			console.log("Error connecting to Database");
   		}else{
-  			res.end('Hello World');
+  			console.log("Connected to DB")
   		}
+      var email = req.body.email;
+      var password = req.body.pwd;
+  connection.query("SELECT * FROM tb_users WHERE email = ? ", [email], function(err,results,fields){
+
+      if (err) {
+        console.log(err);
+        throw err;
+      }else{
+        console.log("Query correct");
+
+      }
+
+      if(results.length > 0){
+        console.log("Non Empty results");
+          if (password == results[0].passwd) {
+            res.send("Email and Password Match");   // Handle Successful Login and create User session
+          }else{                                    // Redirect to home page
+            console.log(results[0].passwd);
+           res.send("Trigger API : Email and Password Do Not Match"); 
+          }
+      }
+
+      else{
+        res.send("User " + email + " does not Exist in Database");
+      }
+      
+
+  });
+      
   });
 
 
