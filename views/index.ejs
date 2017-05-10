@@ -13,19 +13,19 @@
 					    <h1><%= title %></h1>
 					    <p>Start searching for jobs posted on our platform. Submit your resume and we will apply to the jobs that match your skills</p>
 					    <center> 
-					    	<form method="post" class="form-horizontal" action="/login">
+					    	<form id="frm_search" method="post" class="form-horizontal" action="/login">
 					    		<div class="form-group row">
 										  <div class="col-xs-5">
 										    <label for="ex2">Location</label>
-										    <input class="form-control" id="ex2" type="text">
+										    <input placeholder="Where ?" class="form-control input-lg" id="ex2" type="text">
 										  	</div>
 										  	<div class="col-xs-5">
 										    <label for="ex3">Search Jobs</label>
-										    <input class="form-control" id="ex3" type="text">
+										    <input placeholder="Title, organization, role" class="form-control input-lg" id="ex3" type="text">
 										   </div>
 										   <div class="col-xs-2">
 										    <label for="ex3">.</label>
-										    <input class="form-control" id="ex3" type="submit" value="Search Jobs" >
+										    <input class="form-control input-lg" id="ex3" type="submit" value="Search Jobs" >
 										   </div>
 										</div>
 
