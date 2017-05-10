@@ -12,7 +12,7 @@ a {
     width: 100%;
     position: absolute;
     height: $height-footer;
-    background-color: #b37590;
+    background-color: #4b53b3;
     border-color: #080808
 	}
  .footer-block {
@@ -20,8 +20,8 @@ a {
  }
 
 #trignav{
-  background-color: #1c13b3;
-  border-color: #080808;
+  background-color: #4b53b3;
+  border-color: #4b53b3;
 }
 
 .trigfooter{
