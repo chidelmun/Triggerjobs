@@ -8,6 +8,11 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var jobs = require('./routes/jobs');
+var login = require('./routes/login');
+var register = require('./routes/register');
+
+
+
 var app = express();
 
 // view engine setup
@@ -25,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/jobs',jobs);
+app.use('/login',login)
+app.use('/register',register);
 app.use(function(req,res,next){
 	res.type('text/html');
 	res.status(404);
