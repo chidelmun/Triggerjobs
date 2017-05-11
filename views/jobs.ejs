@@ -5,10 +5,40 @@
  </head>
   <body>
   <%include ./partials/header %>
+  <%include ./partials/about %>
 
-    <h1><%= title %></h1>
-    <p class="primary">Welcome to <%= title %></p>
-    
+  	<div class="jumbotron">
+  		<ul class="list-inline">
+			<% for(var i=0; i<data.length; i++) {%>
+			   <li>
+			    <h3> <a href="/jobs/<%= data[i].id%>"> <%= data[i].title %> </a>  </h3> 
+			    <h3> <%= data[i].role%></h3>
+			    <h3> <%= data[i].location%></h3>
+			    <h3> <%= data[i].company%></h3>
+			   </li>
+			<% } %>
+		</ul>
+  	</div>
+  	
+  	
+	  <h2>Current Job Listings</h2>
+
+	  	<% for(var i=0; i<data.length; i++) {%>
+		  <div class="list-group">
+		    <a href="/jobs/<%= data[i].id%>" class="list-group-item">
+		      <h4 class="list-group-item-heading text-primary"> <%= data[i].title %> </h4>
+
+		      <p class="list-group-item-text">
+		        <strong class="text-primary"> <%= data[i].role%> </strong>
+		        <%= data[i].location%>
+		        <strong class="text-primary"> <%= data[i].company%> </strong>
+		      </p>
+		 </a>
+		    
+		<% } %>
+
+
+
   </body>
   <%include ./partials/footer %>
 </html>
