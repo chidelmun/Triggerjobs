@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 	  	});
 
 
-  		connection.query("SELECT * FROM jobs", function(err,results,fields){
+  		connection.query("SELECT * FROM jobs order by location", function(err,results,fields){
 		  		if (err) {
 		  			console.log("Query Error");
 		  			res.send("Error occured with query : " + err );
