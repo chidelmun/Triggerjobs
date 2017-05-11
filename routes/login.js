@@ -18,7 +18,7 @@ router.post('/',function(req,res,next){
   	password : 'root',
   	database : 'shop'
   });
-
+var message = "";
   connection.connect(function(err){
   		if (err) {
   			console.log("Error connecting to Database");
@@ -43,7 +43,8 @@ router.post('/',function(req,res,next){
             res.send("Email and Password Match");   // Handle Successful Login and create User session
           }else{                                    // Redirect to home page
             console.log(results[0].passwd);
-           res.send("Trigger API : Email and Password Do Not Match"); 
+           // res.send("Trigger API : Email and Password Do Not Match"); 
+           res.render('login', {'message' : 'Email and Password Do Not Match'});
           }
       }
 
