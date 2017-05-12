@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <%include ./partials/head %>
+ </head>
+  <body>
+  <%include ./partials/header %>
+    
+  	<div class="container jumbotron" id="mainvw">
+  		<h2>Job Info</h2>
+  
+	</div>
+ <!-- <%include ./partials/about %> -->
+ <div class="container">
+ <!--  <h2 class="panel panel-primary panel-body panel-heading"><%= data[0].title%></h2> -->
+  <div class="panel-group">
+    
+    <div class="panel panel-primary">
+      <div class="panel-body panel-heading"> <h2> <%= data[0].title%> </h2></div>
+    </div>
+
+    <div class="panel panel-success">
+      <div class="panel-heading">Roles and Responsibilities</div>
+      <div class="panel-body"><%= data[0].role%></div>
+    </div>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">Location</div>
+      <div class="panel-body"><%= data[0].location%></div>
+    </div>
+
+    <div class="panel panel-warning">
+      <div class="panel-heading">Employer or Company name</div>
+      <div class="panel-body"><%= data[0].company%></div>
+    </div>
+  </div>
+
+    <button type="button" class="btn btn-primary active">Apply to this Job</button>
+</div>
+
+
+  </body>
+  <%include ./partials/footer %>
+</html>
