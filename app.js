@@ -29,7 +29,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/jobs',jobs);
-app.use('/login',login)
+
+// Testing /jobs/:id URL This is still to be implemented
+
+app.get('/jobs/:id', function(req,res){
+	console.log("Job request");
+	res.render('login', { title: 'Trigger Jobs'});
+});
+
+app.use('/login',login);
 app.use('/register',register);
 app.use(function(req,res,next){
 	res.type('text/html');

@@ -7,7 +7,7 @@
   <%include ./partials/header %>
   <%include ./partials/about %>
 
-  	<div class="jumbotron">
+  <!-- 	<div class="jumbotron">
   		<ul class="list-inline">
 			<% for(var i=0; i<data.length; i++) {%>
 			   <li>
@@ -19,26 +19,24 @@
 			<% } %>
 		</ul>
   	</div>
-  	
+  	 -->
   	
 	  <h2>Current Job Listings</h2>
 
 	  	<% for(var i=0; i<data.length; i++) {%>
-		  <div class="list-group">
+		  <div class="list-group jumbotron">
 		    <a href="/jobs/<%= data[i].id%>" class="list-group-item">
-		      <h4 class="list-group-item-heading text-primary"> <%= data[i].title %> </h4>
+		      <h4 class="list-group-item-heading "><strong class="text-success"> <%= data[i].title %> </strong> </h4>
 
-		      <p class="list-group-item-text">
+		      <p class="list-group-item-text ">
 		        <strong class="text-primary"> <%= data[i].role%> </strong>
 		        <%= data[i].location%>
 		        <strong class="text-primary"> <%= data[i].company%> </strong>
 		      </p>
-		 </a>
+		    </a>
+		   </div>
 		    
 		<% } %>
-
-
-
   </body>
   <!-- <%include ./partials/footer %> -->
 </html>
