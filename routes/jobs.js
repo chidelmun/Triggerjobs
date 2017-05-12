@@ -74,7 +74,7 @@ router.post('/', function(req, res) {
 
 		  		}else{
 		  			console.log(results);
-		  			res.render('jobs', { title: 'Trigger Jobs','data' : results });
+		  			res.render('jobs', { title: 'Trigger Jobs','data' : results, 'msg' : ' '});
 		  		}
   		});
 
