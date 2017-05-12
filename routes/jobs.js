@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
 
 		  		}else{
 		  			console.log(results);
-		  			res.render('jobs', { title: 'Trigger Jobs','data' : results });
+		  			res.render('jobs', { title: 'Trigger Jobs','data' : results,'msg' : " " });
 		  		}
   		});
 

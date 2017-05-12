@@ -1,4 +1,5 @@
 var express = require('express');
+var mysql = require('mysql');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -33,8 +34,44 @@ app.use('/jobs',jobs);
 // Testing /jobs/:id URL This is still to be implemented
 
 app.get('/jobs/:id', function(req,res){
-	console.log("Job request");
-	res.render('login', { title: 'Trigger Jobs'});
+
+	var connection = mysql.createConnection(
+		{
+			host : 'localhost',
+			user : 'root',
+			password : 'root',
+			database : 'shop'
+
+		});
+
+	connection.connect(function(err){
+		if (err) {
+			console.log(err);
+			res.send("Could not connect to Database");
+		}else{
+			console.log("Connected to Database");
+		}
+	});
+
+    connection.query("SELECT * FROM jobs WHERE id = ?", [req.params.id], function(err,results,fields){
+    		if (err) {
+    			console.log("Query Error");
+    			res.send("Query Error " + err);
+    		}else{
+    			console.log("Number of rows returned : " + results.length);
+    			console.log("Job request  " + req.params.id);
+    			if (results.length != 1) {
+    				res.render('jobs', { title: 'Trigger Jobs','data' : results,'msg':'Job not found'});
+    			}else{
+    				res.render('job', { title: 'Trigger Jobs','data' : results,'msg':' '});
+    			}
+
+				
+    		}
+    });
+
+
+	
 });
 
 app.use('/login',login);

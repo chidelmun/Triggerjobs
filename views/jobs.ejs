@@ -20,8 +20,9 @@
 		</ul>
   	</div>
   	 -->
-  	
+  	<div class="container">
 	  <h2>Current Job Listings</h2>
+	  <h3 class="text text-danger"> <%= msg %> </h3>
 
 	  	<% for(var i=0; i<data.length; i++) {%>
 		  <div class="list-group jumbotron">
@@ -37,6 +38,8 @@
 		   </div>
 		    
 		<% } %>
+
+	</div>
   </body>
   <!-- <%include ./partials/footer %> -->
 </html>
