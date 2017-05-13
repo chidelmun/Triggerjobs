@@ -76,12 +76,10 @@ app.get('/jobs/:id', function(req,res){
 
 app.use('/login',login);
 app.use('/register',register);
-app.use(function(req,res,next){
-	res.type('text/html');
-	res.status(404);
-	res.render('404',{'title' : '404 Page Not Found!!!'})
-})
 
+app.use('*',function(req,res,next){
+	res.render('error', {'title' : '404 Page Not Found!!!'});
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
