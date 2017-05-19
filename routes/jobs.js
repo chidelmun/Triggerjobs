@@ -67,14 +67,19 @@ router.post('/', function(req, res) {
 	  	});
 
 
-  		connection.query("SELECT * FROM jobs order by location", function(err,results,fields){
+  		connection.query("SELECT * FROM jobs where location like ? or title like ?", [req.body.location,req.body.job], function(err,results,fields){
 		  		if (err) {
 		  			console.log("Query Error");
 		  			res.send("Error occured with query : " + err );
 
 		  		}else{
 		  			console.log(results);
-		  			res.render('jobs', { title: 'Trigger Jobs','data' : results, 'msg' : ' '});
+		  			if (results.length > 0) {
+		  				var message  = "";
+		  			}else{
+		  				message = "No Job listings found!";
+		  			}
+		  			res.render('jobs', { title: 'Trigger Jobs','data' : results, 'msg' : message});
 		  		}
   		});
 
